@@ -9,27 +9,21 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Segoe+UI:wght@400;700&display=swap"
         rel="stylesheet">
     <style>
-        /* Variáveis CSS para cores */
         :root {
-            /* Cores para o tema claro */
+            /*cores para o tema claro */
             --cor-fundo-claro: #f9f9f9;
-            /* Branco ligeiramente quebrado */
             --cor-texto-claro: #333333;
             --cor-borda-claro: #ddd;
 
-            /* Cores para o tema escuro */
+            /*cores para o tema escuro */
             --cor-fundo-escuro: #222;
-            /* Cinza escuro profundo */
             --cor-texto-escuro: #eee;
             --cor-borda-escuro: #444;
 
             /* Cor de destaque (links, botões, títulos) - deve ter bom contraste em ambos os fundos */
             --cor-destaque: #007bff;
-            /* Azul vibrante */
             --cor-destaque-hover: #0056b3;
             --cor-destaque-claro: #e0f2ff;
-            /* Versão mais clara para linhas e elementos sutis */
-
             /* Cores para feedback do formulário (sucesso/erro) */
             --cor-sucesso: #28a745;
             /* Verde para sucesso */
@@ -41,15 +35,12 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* Fonte mais moderna e legível */
             margin: 20px;
             padding: 0;
             line-height: 1.6;
             transition: background-color 0.3s, color 0.3s;
             border-radius: 8px;
-            /* Bordas arredondadas para o corpo da página */
             overflow-x: hidden;
-            /* Evita rolagem horizontal indesejada */
         }
 
         /* Estilos para o tema claro (padrão) */
@@ -76,7 +67,7 @@
             color: var(--cor-destaque);
             transition: color 0.3s;
             font-family: 'Open Sans', sans-serif;
-            /* Fonte diferente para os títulos */
+            /*fonte diferente para os títulos */
             margin-top: 1.5em;
             margin-bottom: 0.8em;
         }
@@ -88,7 +79,6 @@
         h2 {
             font-size: 2em;
             border-bottom: 2px solid var(--cor-destaque-claro);
-            /* Linha sutil sob os títulos de seção */
             padding-bottom: 0.3em;
             margin-bottom: 1em;
         }
@@ -142,19 +132,19 @@
             /* Variável para a borda da seção */
         }
 
-        /* Define as cores de fundo e borda das seções de acordo com o tema */
+        /*define as cores de fundo e borda das seções de acordo com o tema */
         body.tema-claro main>section {
             --cor-fundo-principal: white;
             --cor-borda-principal: var(--cor-borda-claro);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            /* Sombra suave no tema claro */
+            /*sombra suave no tema claro */
         }
 
         body.tema-escuro main>section {
             --cor-fundo-principal: #333;
             --cor-borda-principal: var(--cor-borda-escuro);
             box-shadow: 0 1px 5px rgba(255, 255, 255, 0.05);
-            /* Sombra suave no tema escuro */
+            /*sombra suave no tema escuro */
         }
 
         .exemplo-grafico {
@@ -176,7 +166,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        /* Exemplos de contraste (cores fixas para demonstração) */
+        /*exemplos de contraste (cores fixas para demonstração) */
         .alto-contraste {
             background-color: #000;
             /* Preto */
@@ -263,7 +253,7 @@
             color: #999;
         }
 
-        /* --- Estilos para o Exemplo Prático (Formulário) --- */
+        /* estilos pro formulario*/
         .form-group {
             margin-bottom: 15px;
         }
@@ -274,25 +264,21 @@
             font-weight: bold;
         }
 
-        /* Estilo para o asterisco obrigatório */
         .form-group label .required-asterisk {
             color: red;
             margin-left: 4px;
             font-weight: normal;
-            /* Para que o asterisco não fique em negrito se o label for */
         }
 
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group textarea {
             width: calc(100% - 22px);
-            /* 100% menos padding e borda */
             padding: 10px;
             border: 1px solid var(--cor-borda-input);
             border-radius: 5px;
             font-size: 1rem;
             box-sizing: border-box;
-            /* Inclui padding e borda no width */
             transition: border-color 0.3s, background-color 0.3s;
         }
 
@@ -330,10 +316,9 @@
 
         .form-group .checkbox-container input[type="checkbox"] {
             margin-right: 8px;
+            /* Garante que o checkbox tenha tamanho mínimo clicável */
             min-width: 16px;
-            /* Garante que o checkbox tenha tamanho mínimo clicável */
             min-height: 16px;
-            /* Garante que o checkbox tenha tamanho mínimo clicável */
         }
 
         .form-group .checkbox-container label {
@@ -385,7 +370,7 @@
 <body class="tema-claro">
     <header>
         <h1>Acessibilidade: Perceptível - Contraste e Cores (WCAG 2.2)</h1>
-        <p>Este exemplo demonstra os critérios de WCAG 2.2 relacionados ao **contraste e cores**, com um tema
+        <p>Este exemplo demonstra os critérios de WCAG 2.2 relacionados ao <b>contraste e cores</b>, com um tema
             claro/escuro.</p>
         <button id="toggleThemeBtn">Alternar Tema (Claro/Escuro)</button>
     </header>
@@ -397,20 +382,20 @@
             <h2>Critério 1.4.3: Contraste Mínimo (AA)</h2>
             <p>Este critério garante que o contraste entre o texto e o fundo seja suficiente para que pessoas com baixa
                 visão consigam ler o conteúdo.</p>
-            <p>O contraste mínimo exigido é de **4.5:1 para texto normal** e **3:1 para texto grande (18pt ou 14pt em
-                negrito)**.</p>
+            <p>O contraste mínimo exigido é de <b>>4.5:1 para texto normal</b> e <b>3:1 para texto grande (18pt ou 14pt em
+                negrito)</b>.</p>
 
             <h3>Exemplos de Texto e Fundo:</h3>
             <div class="exemplo-texto-fundo claro-texto-claro">
-                <p style="font-size: 1rem;">**Texto Normal (Contraste Suficiente)**: Este texto possui um bom contraste
+                <p style="font-size: 1rem;"><b>Texto Normal (Contraste Suficiente)</b>: Este texto possui um bom contraste
                     em relação ao fundo claro.</p>
             </div>
             <div class="exemplo-texto-fundo claro-texto-baixo-contraste">
-                <p style="font-size: 1rem;">**Texto Normal (Baixo Contraste)**: Este texto pode ser difícil de ler para
+                <p style="font-size: 1rem;"><b>Texto Normal (Baixo Contraste)</b>: Este texto pode ser difícil de ler para
                     algumas pessoas devido ao baixo contraste.</p>
             </div>
             <div class="exemplo-texto-fundo escuro-texto-claro">
-                <p style="font-size: 1.2rem; font-weight: bold;">**Texto Grande (Contraste Suficiente)**: Títulos e
+                <p style="font-size: 1.2rem; font-weight: bold;"><b>Texto Grande (Contraste Suficiente)</b>: Títulos e
                     textos maiores também precisam de contraste adequado.</p>
             </div>
         </section>
@@ -459,7 +444,7 @@
             <h2>Critério 1.4.11: Contraste de Conteúdo Não Textual (AA)</h2>
             <p>Este critério se aplica a componentes da interface de usuário e objetos gráficos.</p>
             <p>As representações visuais de componentes da interface do usuário (botões, caixas de seleção, etc.) e
-                objetos gráficos essenciais para a compreensão do conteúdo devem ter um contraste de **no mínimo 3:1**
+                objetos gráficos essenciais para a compreensão do conteúdo devem ter um contraste de <b>no mínimo 3:1</b>
                 contra cores adjacentes.</p>
 
             <h3>Exemplos Visuais:</h3>

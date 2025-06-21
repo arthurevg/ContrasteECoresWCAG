@@ -10,21 +10,20 @@
         rel="stylesheet">
     <style>
         :root {
-            /*cores para o tema claro */
+            /* cores para o tema claro */
             --cor-fundo-claro: #f9f9f9;
             --cor-texto-claro: #333333;
             --cor-borda-claro: #ddd;
 
-            /*cores para o tema escuro */
+            /* cores para o tema escuro */
             --cor-fundo-escuro: #222;
             --cor-texto-escuro: #eee;
             --cor-borda-escuro: #444;
 
-            /* Cor de destaque (links, botões, títulos) - deve ter bom contraste em ambos os fundos */
             --cor-destaque: #007bff;
             --cor-destaque-hover: #0056b3;
             --cor-destaque-claro: #e0f2ff;
-            /* Cores para feedback do formulário (sucesso/erro) */
+
             --cor-sucesso: #28a745;
             /* Verde para sucesso */
             --cor-erro: #dc3545;
@@ -67,7 +66,6 @@
             color: var(--cor-destaque);
             transition: color 0.3s;
             font-family: 'Open Sans', sans-serif;
-            /*fonte diferente para os títulos */
             margin-top: 1.5em;
             margin-bottom: 0.8em;
         }
@@ -86,16 +84,13 @@
         a {
             color: var(--cor-destaque);
             text-decoration: none;
-            /* Remove o sublinhado padrão */
             border-bottom: 1px dotted var(--cor-destaque);
-            /* Adiciona sublinhado pontilhado para acessibilidade */
             transition: color 0.3s, border-bottom 0.3s;
         }
 
         a:hover {
             color: var(--cor-destaque-hover);
             border-bottom-style: solid;
-            /* Muda para sublinhado sólido ao passar o mouse */
         }
 
         button {
@@ -105,31 +100,24 @@
             padding: 12px 20px;
             cursor: pointer;
             border-radius: 8px;
-            /* Bordas arredondadas para o botão */
             font-size: 1rem;
             margin-bottom: 20px;
             transition: background-color 0.3s, transform 0.2s ease-in-out;
-            /* Transição para efeito ao passar o mouse */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            /* Sombra sutil */
         }
 
         button:hover {
             background-color: var(--cor-destaque-hover);
             transform: scale(1.05);
-            /* Leve aumento de tamanho ao passar o mouse */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            /* Sombra mais pronunciada ao passar o mouse */
         }
 
         main>section {
             background-color: var(--cor-fundo-principal);
-            /* Variável para o fundo da seção */
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
             border: 1px solid var(--cor-borda-principal);
-            /* Variável para a borda da seção */
         }
 
         /*define as cores de fundo e borda das seções de acordo com o tema */
@@ -137,14 +125,12 @@
             --cor-fundo-principal: white;
             --cor-borda-principal: var(--cor-borda-claro);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            /*sombra suave no tema claro */
         }
 
         body.tema-escuro main>section {
             --cor-fundo-principal: #333;
             --cor-borda-principal: var(--cor-borda-escuro);
             box-shadow: 0 1px 5px rgba(255, 255, 255, 0.05);
-            /*sombra suave no tema escuro */
         }
 
         .exemplo-grafico {
@@ -169,40 +155,31 @@
         /*exemplos de contraste (cores fixas para demonstração) */
         .alto-contraste {
             background-color: #000;
-            /* Preto */
             color: #fff;
-            /* Branco */
         }
 
         .baixo-contraste {
             background-color: #aaa;
-            /* Cinza claro */
             color: #ccc;
-            /* Cinza muito claro */
         }
 
         .contraste-suficiente {
             background-color: #0056b3;
-            /* Azul escuro */
             color: #fff;
-            /* Branco */
         }
 
         ul {
             padding-left: 20px;
             list-style-type: disc;
-            /* Marcadores de lista padrão */
         }
 
         .item-lista {
             padding: 10px 0;
             border-bottom: 1px solid var(--cor-borda-principal);
-            /* Linha sólida para separação */
         }
 
         .item-lista:last-child {
             border-bottom: none;
-            /* Remove a borda do último item da lista */
         }
 
         .exemplo-texto-fundo p {
@@ -210,14 +187,13 @@
             margin-bottom: 10px;
             border-radius: 5px;
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-            /* Sombra interna sutil */
         }
 
         body.tema-escuro .exemplo-texto-fundo p {
             box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.05);
         }
 
-        /* Estilos específicos para os blocos de exemplo de texto e fundo */
+        /*estilos para os blocos de exemplo de texto e fundo */
         .exemplo-texto-fundo.claro-texto-claro p {
             background-color: #eee;
             color: #333;
@@ -239,14 +215,12 @@
         hr {
             border: none;
             border-top: 1px solid var(--cor-borda-principal);
-            /* Linha horizontal com cor do tema */
             margin: 20px 0;
         }
 
         small em {
             font-style: italic;
             color: #777;
-            /* Cor mais suave para notas pequenas */
         }
 
         body.tema-escuro small em {
@@ -303,9 +277,7 @@
         .form-group textarea:focus {
             border-color: var(--cor-destaque);
             outline: none;
-            /* Remove o outline padrão */
             box-shadow: 0 0 0 2px var(--cor-destaque-claro);
-            /* Foco acessível */
         }
 
         .form-group .checkbox-container {
@@ -316,18 +288,14 @@
 
         .form-group .checkbox-container input[type="checkbox"] {
             margin-right: 8px;
-            /* Garante que o checkbox tenha tamanho mínimo clicável */
             min-width: 16px;
             min-height: 16px;
         }
 
         .form-group .checkbox-container label {
             margin-bottom: 0;
-            /* Remove a margem extra do label do checkbox */
             font-weight: normal;
-            /* Label do checkbox não precisa ser negrito */
             display: inline;
-            /* Para que o label fique ao lado do checkbox */
         }
 
         .feedback-message {
@@ -336,7 +304,6 @@
             margin-top: 15px;
             font-weight: bold;
             display: none;
-            /* Escondido por padrão */
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
         }
@@ -358,11 +325,41 @@
             border: 1px solid var(--cor-erro);
         }
 
-        /* --- Foco visual para elementos interativos --- */
-        /* Garante um indicador de foco claro para acessibilidade do teclado */
+        /*foco visual para elementos interativos*/
         :focus-visible {
             outline: 2px solid var(--cor-destaque);
             outline-offset: 2px;
+        }
+
+        /*estilos do botao */
+        .fixed-theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .fixed-theme-toggle button {
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 0;
+        }
+
+        /*estilo pro icone*/
+        .fixed-theme-toggle button .icon {
+            line-height: 1;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .fixed-theme-toggle button:hover .icon {
+            transform: rotate(360deg);
         }
     </style>
 </head>
@@ -372,7 +369,6 @@
         <h1>Acessibilidade: Perceptível - Contraste e Cores (WCAG 2.2)</h1>
         <p>Este exemplo demonstra os critérios de WCAG 2.2 relacionados ao <b>contraste e cores</b>, com um tema
             claro/escuro.</p>
-        <button id="toggleThemeBtn">Alternar Tema (Claro/Escuro)</button>
     </header>
 
     <hr>
@@ -382,16 +378,18 @@
             <h2>Critério 1.4.3: Contraste Mínimo (AA)</h2>
             <p>Este critério garante que o contraste entre o texto e o fundo seja suficiente para que pessoas com baixa
                 visão consigam ler o conteúdo.</p>
-            <p>O contraste mínimo exigido é de <b>>4.5:1 para texto normal</b> e <b>3:1 para texto grande (18pt ou 14pt em
-                negrito)</b>.</p>
-
+            <p>O contraste mínimo exigido é de <b>4.5:1</b> para <b>texto normal</b> e <b>3:1</b> para <b>texto
+                    grande</b> (18pt ou 14pt em negrito).
+            </p>
             <h3>Exemplos de Texto e Fundo:</h3>
             <div class="exemplo-texto-fundo claro-texto-claro">
-                <p style="font-size: 1rem;"><b>Texto Normal (Contraste Suficiente)</b>: Este texto possui um bom contraste
+                <p style="font-size: 1rem;"><b>Texto Normal (Contraste Suficiente)</b>: Este texto possui um bom
+                    contraste
                     em relação ao fundo claro.</p>
             </div>
             <div class="exemplo-texto-fundo claro-texto-baixo-contraste">
-                <p style="font-size: 1rem;"><b>Texto Normal (Baixo Contraste)</b>: Este texto pode ser difícil de ler para
+                <p style="font-size: 1rem;"><b>Texto Normal (Baixo Contraste)</b>: Este texto pode ser difícil de ler
+                    para
                     algumas pessoas devido ao baixo contraste.</p>
             </div>
             <div class="exemplo-texto-fundo escuro-texto-claro">
@@ -444,9 +442,8 @@
             <h2>Critério 1.4.11: Contraste de Conteúdo Não Textual (AA)</h2>
             <p>Este critério se aplica a componentes da interface de usuário e objetos gráficos.</p>
             <p>As representações visuais de componentes da interface do usuário (botões, caixas de seleção, etc.) e
-                objetos gráficos essenciais para a compreensão do conteúdo devem ter um contraste de <b>no mínimo 3:1</b>
+                objetos gráficos essenciais para a compreensão do conteúdo devem ter um contraste de no <b>mínimo3:1</b>
                 contra cores adjacentes.</p>
-
             <h3>Exemplos Visuais:</h3>
             <p>Passe o mouse sobre os círculos para ver os "estados" (não obrigatório por WCAG, mas bom para demonstrar
                 interatividade e contraste).</p>
@@ -455,10 +452,10 @@
                 <div class="exemplo-grafico alto-contraste" title="Alto Contraste: 100% contraste">
                     Botão
                 </div>
-                <div class="exemplo-grafico contraste-suficiente" title="Contraste Suficiente: >3:1">
+                <div class="exemplo-grafico contraste-suficiente" title="Contraste Suficiente: > 3:1">
                     Ícone
                 </div>
-                <div class="exemplo-grafico baixo-contraste" title="Baixo Contraste: <3:1">
+                <div class="exemplo-grafico baixo-contraste" title="Baixo Contraste: < 3:1">
                     Campo
                 </div>
             </div>
@@ -469,7 +466,6 @@
             <h2>Exemplo Prático: Formulário de Contato Acessível</h2>
             <p>Este formulário demonstra como aplicar os princípios de contraste e uso da cor em elementos interativos.
             </p>
-
             <form id="contactForm" novalidate>
                 <div class="form-group">
                     <label for="nome">Nome Completo:<span class="required-asterisk">*</span></label>
@@ -500,34 +496,44 @@
         </section>
     </main>
 
+    <div class="fixed-theme-toggle">
+        <button id="toggleThemeBtn" title="Alternar tema claro/escuro">
+            <span class="icon">☀️</span> </button>
+    </div>
+
+
     <script>
         const toggleThemeBtn = document.getElementById('toggleThemeBtn');
         const body = document.body;
         const contactForm = document.getElementById('contactForm');
         const formFeedback = document.getElementById('formFeedback');
 
-        // Função para alternar o tema
+        //função para alternar o tema
         function toggleTheme() {
             if (body.classList.contains('tema-claro')) {
                 body.classList.remove('tema-claro');
                 body.classList.add('tema-escuro');
                 localStorage.setItem('theme', 'dark'); // Salva a preferência do usuário
+                toggleThemeBtn.querySelector('.icon').textContent = '☀️';
             } else {
                 body.classList.remove('tema-escuro');
                 body.classList.add('tema-claro');
-                localStorage.setItem('theme', 'light'); // Salva a preferência do usuário
+                localStorage.setItem('theme', 'light');
+                toggleThemeBtn.querySelector('.icon').textContent = '🌙';
             }
         }
 
-        // Verifica a preferência do usuário ao carregar a página
+        //verifica a preferência do usuário ao carregar a página
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 body.classList.remove('tema-claro');
                 body.classList.add('tema-escuro');
+                toggleThemeBtn.querySelector('.icon').textContent = '☀️';
             } else {
                 body.classList.remove('tema-escuro');
                 body.classList.add('tema-claro');
+                toggleThemeBtn.querySelector('.icon').textContent = '🌙';
             }
         });
 
@@ -537,7 +543,7 @@
         contactForm.addEventListener('submit', function (event) {
             event.preventDefault(); // Impede o envio real do formulário
 
-            // Limpa mensagens anteriores
+            //limpa mensagens anteriores
             formFeedback.classList.remove('show', 'success', 'error');
             formFeedback.textContent = '';
 
@@ -550,10 +556,10 @@
                 formFeedback.classList.add('show', 'error');
                 formFeedback.textContent = 'Erro: Por favor, preencha todos os campos obrigatórios e aceite os termos.';
             } else {
-                // Simula um envio bem-sucedido
+                //simula um envio bem-sucedido
                 formFeedback.classList.add('show', 'success');
                 formFeedback.textContent = 'Sucesso! Sua mensagem foi enviada. Entraremos em contato em breve.';
-                contactForm.reset(); // Limpa o formulário
+                contactForm.reset(); //Limpa o formulário
             }
         });
     </script>

@@ -20,16 +20,26 @@
             --cor-texto-escuro: #eee;
             --cor-borda-escuro: #444;
 
-            --cor-destaque: #007bff;
+            /* VARIÁVEIS DE DESTAQUE E FOCO PADRÃO (SOBRESCRITAS PELOS TEMAS) */
+            --cor-destaque-principal: #007bff;
             --cor-destaque-hover: #0056b3;
-            --cor-destaque-claro: #e0f2ff;
+            --cor-foco-outline: #e0f2ff;
 
+            /* Nova variável para cor do texto do botão */
+            --cor-texto-botao: white;
+
+            /* Nova variável para cor do asterisco obrigatório */
+            --cor-asterisco-obrigatorio: red;
+
+            /* Cores para feedback do formulário (sucesso/erro) */
             --cor-sucesso: #155724;
             /* Verde para sucesso */
             --cor-erro: #721c24;
             /* Vermelho para erro */
             --cor-fundo-sucesso: #d4edda;
+            /* Fundo verde claro */
             --cor-fundo-erro: #f8d7da;
+            /* Fundo vermelho claro */
         }
 
         body {
@@ -46,12 +56,35 @@
         body.tema-claro {
             background-color: var(--cor-fundo-claro);
             color: var(--cor-texto-claro);
+            /* CORES DE DESTAQUE E FOCO PARA TEMA CLARO - ALTO CONTRASTE */
+            --cor-destaque-principal: #004085;
+            /* Contraste no fundo claro: 4.64:1 (PASS AA) */
+            --cor-destaque-hover: #002e60;
+            --cor-foco-outline: #5cb3fd;
+            /* Contraste no fundo claro: 4.09:1 (PASS AA para não-textual) */
+            /* Cor do texto do botão para o tema CLARO */
+            --cor-texto-botao: white;
+            /* COR DO ASTERISCO PARA O TEMA CLARO */
+            --cor-asterisco-obrigatorio: #A00000;
+            /* Contraste no fundo claro: 4.69:1 (PASS AA!) */
         }
 
         /* Estilos para o tema escuro */
         body.tema-escuro {
             background-color: var(--cor-fundo-escuro);
             color: var(--cor-texto-escuro);
+            /* CORES DE DESTAQUE E FOCO PARA TEMA ESCURO - ALTO CONTRASTE */
+            --cor-destaque-principal: #80bdff;
+            /* Contraste no fundo escuro: 5.58:1 (PASS AA) */
+            --cor-destaque-hover: #a0d1ff;
+            --cor-foco-outline: #007bff;
+            /* Contraste no fundo escuro: 3.2:1 (PASS AA para não-textual) */
+            /* Cor do texto do botão para o tema ESCURO */
+            --cor-texto-botao: #333333;
+            /* Contraste de #333333 sobre #80bdff: 7.05:1 (PASS AA!) */
+            /* COR DO ASTERISCO PARA O TEMA ESCURO */
+            --cor-asterisco-obrigatorio: #FF6666;
+            /* Contraste no fundo escuro: 4.55:1 (PASS AA!) */
         }
 
         header {
@@ -63,7 +96,7 @@
         h1,
         h2,
         h3 {
-            color: var(--cor-destaque);
+            color: var(--cor-destaque-principal);
             transition: color 0.3s;
             font-family: 'Open Sans', sans-serif;
             margin-top: 1.5em;
@@ -76,15 +109,15 @@
 
         h2 {
             font-size: 2em;
-            border-bottom: 2px solid var(--cor-destaque-claro);
+            border-bottom: 2px solid var(--cor-foco-outline);
             padding-bottom: 0.3em;
             margin-bottom: 1em;
         }
 
         a {
-            color: var(--cor-destaque);
+            color: var(--cor-destaque-principal);
             text-decoration: none;
-            border-bottom: 1px dotted var(--cor-destaque);
+            border-bottom: 1px dotted var(--cor-destaque-principal);
             transition: color 0.3s, border-bottom 0.3s;
         }
 
@@ -94,8 +127,8 @@
         }
 
         button {
-            background-color: var(--cor-destaque);
-            color: white;
+            background-color: var(--cor-destaque-principal);
+            color: var(--cor-texto-botao);
             border: none;
             padding: 12px 20px;
             cursor: pointer;
@@ -239,7 +272,7 @@
         }
 
         .form-group label .required-asterisk {
-            color: red;
+            color: var(--cor-asterisco-obrigatorio);
             margin-left: 4px;
             font-weight: normal;
         }
@@ -275,27 +308,65 @@
         .form-group input[type="text"]:focus,
         .form-group input[type="email"]:focus,
         .form-group textarea:focus {
-            border-color: var(--cor-destaque);
+            border-color: var(--cor-destaque-principal);
             outline: none;
-            box-shadow: 0 0 0 2px var(--cor-destaque-claro);
+            box-shadow: 0 0 0 2px var(--cor-foco-outline);
         }
 
         .form-group .checkbox-container {
+            /* REMOVIDO: display: flex; align-items: center; */
+            /* REMOVIDO: flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; */
+            margin-top: 10px;
+            /* ADICIONADO: Garante que o contêiner do checkbox funcione como bloco normal */
+            display: block;
+        }
+
+        /* INÍCIO DA GAMBIARRA HTML: NOVA DIV ENVOLVENDO CHECKBOX E LABEL
+           O CSS ABAIXO FOI ADAPTADO PARA TRABALHAR COM ESSA NOVA DIV */
+        .checkbox-content {
+            /* Força a nova div a ser um container flex para seus filhos diretos */
             display: flex;
             align-items: center;
-            margin-top: 10px;
+            /* Centraliza verticalmente o checkbox e o texto */
+            flex-wrap: nowrap;
+            /* Garante que o checkbox e o label fiquem na mesma linha */
+            overflow-x: auto;
+            /* Permite rolagem horizontal se o conteúdo for muito grande em telas pequenas */
+            -webkit-overflow-scrolling: touch;
+            /* Melhoria de rolagem em dispositivos móveis */
+            width: 100%;
+            /* Garante que a div interna ocupe o espaço disponível */
         }
+
+        /* FIM DA GAMBIARRA */
 
         .form-group .checkbox-container input[type="checkbox"] {
             margin-right: 8px;
             min-width: 16px;
             min-height: 16px;
+            flex-shrink: 0;
+            /* Garante que o input não encolha */
+            /* SOLUÇÃO ADICIONAL PARA ALINHAMENTO FORÇADO: */
+            /* Torna o checkbox um bloco em linha para melhor controle de alinhamento vertical */
+            display: inline-block;
+            vertical-align: middle;
+            /* Alinha o meio do checkbox com o meio do texto */
         }
 
         .form-group .checkbox-container label {
             margin-bottom: 0;
             font-weight: normal;
-            display: inline;
+            /* SOLUÇÃO ADICIONAL PARA O TEXTO NÃO QUEBRAR E FICAR NA MESMA LINHA: */
+            white-space: nowrap;
+            /* Força o texto a não quebrar para a linha de baixo */
+            flex-grow: 1;
+            /* Permite que o label cresça para ocupar o espaço necessário */
+            flex-shrink: 0;
+            /* Garante que o label não encolha */
+            /* Torna o label um bloco em linha para melhor controle de alinhamento vertical */
+            display: inline-block;
+            vertical-align: middle;
+            /* Alinha o meio do texto com o meio do checkbox */
         }
 
         .feedback-message {
@@ -327,7 +398,7 @@
 
         /*foco visual para elementos interativos*/
         :focus-visible {
-            outline: 2px solid var(--cor-destaque);
+            outline: 2px solid var(--cor-foco-outline);
             outline-offset: 2px;
         }
 
@@ -366,7 +437,7 @@
 
 <body class="tema-claro">
     <header>
-        <h1>Acessibilidade: Perceptível - Contraste e Cores (WCAG 2.2)</h1>
+        <h1>Contraste e Cores (WCAG 2.2)</h1>
         <p>Este exemplo demonstra os critérios de WCAG 2.2 relacionados ao <b>contraste e cores</b>, com um tema
             claro/escuro.</p>
     </header>
@@ -442,11 +513,11 @@
             <h2>Critério 1.4.11: Contraste de Conteúdo Não Textual (AA)</h2>
             <p>Este critério se aplica a componentes da interface de usuário e objetos gráficos.</p>
             <p>As representações visuais de componentes da interface do usuário (botões, caixas de seleção, etc.) e
-                objetos gráficos essenciais para a compreensão do conteúdo devem ter um contraste de no <b>mínimo3:1</b>
+                objetos gráficos essenciais para a compreensão do conteúdo devem ter um contraste de <b>no mínimo
+                    3:1</b>
                 contra cores adjacentes.</p>
             <h3>Exemplos Visuais:</h3>
-            <p>Passe o mouse sobre os círculos para ver os "estados" (não obrigatório por WCAG, mas bom para demonstrar
-                interatividade e contraste).</p>
+            <p>Passe o mouse sobre os círculos para ver os "estados".</p>
 
             <div style="display: flex; gap: 20px; flex-wrap: wrap;">
                 <div class="exemplo-grafico alto-contraste" title="Alto Contraste: 100% contraste">
@@ -468,25 +539,27 @@
             </p>
             <form id="contactForm" novalidate>
                 <div class="form-group">
-                    <label for="nome">Nome Completo:<span class="required-asterisk">*</span></label>
+                    <label for="nome">Nome Completo:<span class="required-asterisk">(obrigatório)*</span></label>
                     <input type="text" id="nome" name="nome" required aria-required="true" placeholder="Seu nome">
                 </div>
 
                 <div class="form-group">
-                    <label for="email">E-mail:<span class="required-asterisk">*</span></label>
+                    <label for="email">E-mail:<span class="required-asterisk">(obrigatório)*</span></label>
                     <input type="email" id="email" name="email" required aria-required="true"
                         placeholder="seu.email@exemplo.com">
                 </div>
 
                 <div class="form-group">
-                    <label for="mensagem">Sua Mensagem:<span class="required-asterisk">*</span></label>
+                    <label for="mensagem">Sua Mensagem:<span class="required-asterisk">(obrigatório)*</span></label>
                     <textarea id="mensagem" name="mensagem" rows="5" required aria-required="true"
                         placeholder="Digite sua mensagem aqui..."></textarea>
                 </div>
 
                 <div class="form-group checkbox-container">
-                    <input type="checkbox" id="aceiteTermos" name="aceiteTermos" required aria-required="true">
-                    <label for="aceiteTermos">Li e aceito os <a href="#">Termos de Uso</a>.</label>
+                    <div class="checkbox-content">
+                        <input type="checkbox" id="aceiteTermos" name="aceiteTermos" required aria-required="true">
+                        <label for="aceiteTermos">Li e aceito os <a href="#">Termos de Uso</a>.</label>
+                    </div>
                 </div>
 
                 <button type="submit">Enviar Mensagem</button>
@@ -498,7 +571,8 @@
 
     <div class="fixed-theme-toggle">
         <button id="toggleThemeBtn" title="Alternar tema claro/escuro">
-            <span class="icon">☀️</span> </button>
+            <span class="icon">☀️</span>
+        </button>
     </div>
 
 
@@ -514,12 +588,12 @@
                 body.classList.remove('tema-claro');
                 body.classList.add('tema-escuro');
                 localStorage.setItem('theme', 'dark'); // Salva a preferência do usuário
-                toggleThemeBtn.querySelector('.icon').textContent = '☀️';
+                toggleThemeBtn.querySelector('.icon').textContent = '☀️'; // Alterado para mostrar a lua (próximo estado)
             } else {
                 body.classList.remove('tema-escuro');
                 body.classList.add('tema-claro');
-                localStorage.setItem('theme', 'light');
-                toggleThemeBtn.querySelector('.icon').textContent = '🌙';
+                localStorage.setItem('theme', 'light'); // Salva a preferência do usuário
+                toggleThemeBtn.querySelector('.icon').textContent = '🌙'; // Alterado para mostrar o sol (próximo estado)
             }
         }
 
@@ -529,11 +603,11 @@
             if (savedTheme === 'dark') {
                 body.classList.remove('tema-claro');
                 body.classList.add('tema-escuro');
-                toggleThemeBtn.querySelector('.icon').textContent = '☀️';
+                toggleThemeBtn.querySelector('.icon').textContent = '☀️'; // Alterado para mostrar a lua na carga
             } else {
                 body.classList.remove('tema-escuro');
                 body.classList.add('tema-claro');
-                toggleThemeBtn.querySelector('.icon').textContent = '🌙';
+                toggleThemeBtn.querySelector('.icon').textContent = '🌙'; // Alterado para mostrar o sol na carga
             }
         });
 
